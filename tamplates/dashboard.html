@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Video Streaming Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎬 Video Streaming Platform</h1>
+
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <h2>Welcome to your Dashboard</h2>
+
+        <section class="upload-card">
+
+            <h3>Upload a Video</h3>
+
+            <form method="POST"
+                  action="{{ url_for('upload') }}"
+                  enctype="multipart/form-data">
+
+                <label for="title">Video Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Enter video title"
+                    required
+                >
+
+                <label for="video">Select Video</label>
+
+                <input
+                    type="file"
+                    id="video"
+                    name="video"
+                    accept="video/*"
+                    required
+                >
+
+                <button type="submit">
+                    Upload Video
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="videos">
+
+            <h3>Your Videos</h3>
+
+            {% if videos %}
+
+                {% for video in videos %}
+
+                    <div class="video-card">
+
+                        <h4>{{ video["title"] }}</h4>
+
+                        <video controls width="500">
+
+                            <source
+                                src="{{ video['url'] }}"
+                                type="video/mp4"
+                            >
+
+                            Your browser does not support
+                            video playback.
+
+                        </video>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>You haven't uploaded any videos yet.</p>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Video Streaming Platform | Internship Project</p>
+    </footer>
+
+</body>
+
+</html>
