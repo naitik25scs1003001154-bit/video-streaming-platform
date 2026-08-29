@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Video Streaming Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎬 Video Streaming Platform</h1>
+
+        <nav>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </nav>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <h2>Watch. Upload. Share.</h2>
+
+            <p>
+                Upload and manage your videos with our
+                simple video streaming platform.
+            </p>
+
+            <a class="button"
+               href="{{ url_for('login') }}">
+                Get Started
+            </a>
+
+        </section>
+
+
+        <section class="features">
+
+            <div class="card">
+                <h3>📤 Upload Videos</h3>
+                <p>
+                    Upload your video content through
+                    your personal dashboard.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>☁️ Cloud Storage</h3>
+                <p>
+                    Videos can be stored securely using
+                    AWS S3.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>▶️ Stream Videos</h3>
+                <p>
+                    Watch your uploaded videos directly
+                    from the platform.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Video Streaming Platform | Internship Project</p>
+    </footer>
+
+</body>
+
+</html>
