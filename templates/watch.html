@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ video["title"] }} - Video Streaming Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎬 Video Streaming Platform</h1>
+
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <div class="video-card">
+
+            <h2>{{ video["title"] }}</h2>
+
+            {% if video_url %}
+
+                <video controls width="800" style="max-width: 100%;">
+
+                    <source
+                        src="{{ video_url }}"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support video playback.
+
+                </video>
+
+            {% else %}
+
+                <p>
+                    The video is not currently available for streaming.
+                </p>
+
+            {% endif %}
+
+            <br><br>
+
+            <a class="button"
+               href="{{ url_for('dashboard') }}">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Video Streaming Platform | Internship Project</p>
+    </footer>
+
+</body>
+
+</html>
