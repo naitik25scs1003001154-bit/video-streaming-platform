@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Video - Video Streaming Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎬 Video Streaming Platform</h1>
+
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <div class="form-card">
+
+            <h2>Upload Video</h2>
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+                <label for="title">Video Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Enter video title"
+                    required
+                >
+
+                <label for="video">Choose Video</label>
+
+                <input
+                    type="file"
+                    id="video"
+                    name="video"
+                    accept="video/*"
+                    required
+                >
+
+                <button type="submit">
+                    Upload Video
+                </button>
+
+            </form>
+
+            <br>
+
+            <a class="button"
+               href="{{ url_for('dashboard') }}">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Video Streaming Platform | Internship Project</p>
+    </footer>
+
+</body>
+
+</html>
