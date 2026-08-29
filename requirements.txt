@@ -1,0 +1,4 @@
+Flash
+boto3
+python-dotenv
+Werkzeug
